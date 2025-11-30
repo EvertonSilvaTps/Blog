@@ -2,7 +2,7 @@
 {
     public class RoleResponseDTO
     {
-        public string Name { get; set; }
-        public string Slug { get; set; }
+        public string Name { get; init; } = string.Empty;
+        public string Slug { get; init; } = string.Empty;
     }
 }

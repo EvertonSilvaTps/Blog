@@ -8,20 +8,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();     // Já importa os meus Controllers
+builder.Services.AddControllers();     // Já importa todos os meus Controllers
 
 // Singleton = Determina q não vai poder mais existir outra instância do tipo 'ConnectionDB', q além desta.
-builder.Services.AddSingleton<ConnectionDB>();
+//builder.Services.AddSingleton<ConnectionDB>();
 
 builder.Services.AddTransient<ConnectionDB>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
-//builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<TagService, TagService>();
-//builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITagService, TagService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();  // Ele monta a aplicação com todos os serviços
 

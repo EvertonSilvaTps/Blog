@@ -9,7 +9,7 @@ namespace Blog.API.Controllers
     public class CategoryController : ControllerBase
     {
         private ICategoryService _categoryService;
-        //private ILogger
+        //private ILogger _ilogger;
 
         // Isso chama-se de 'Construtor dependente', conexão entre CategoryController e CategoryService
 
@@ -34,7 +34,7 @@ namespace Blog.API.Controllers
         {
             var categories = await _categoryService.GetAllCategoriesAsync();
 
-            return Ok(categories);
+            return StatusCode(401, categories);
         }
 
         [HttpPost("Create")]
